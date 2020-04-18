@@ -1,0 +1,53 @@
+﻿@page
+@model MSAL_WebApp.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Profile</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm text-right border">
+            Display Name:
+        </div>
+        <div class="col-sm text-left border">
+            @Html.Raw(Model.Me.DisplayName)
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm text-right border">
+            Phone Number
+        </div>
+        <div class="col-sm text-left border">
+            @Html.Raw(Model.Me.BusinessPhones.First())
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm text-right border">
+            Location
+        </div>
+        <div class="col-sm text-left border">
+            @Html.Raw(Model.Me.OfficeLocation)
+
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center mt-md-5">
+        <div class="col-sm">
+            <a href="@Url.Page("Profile")" class="btn btn-outline-primary mx-2">Profile</a>
+
+            <a href="@Url.Page("Mail")" class="btn btn-outline-primary mx-2">Mail</a>
+
+            <a href="@Url.Page("BankAccount")" class="btn btn-outline-primary mx-2">Account API</a>
+        </div>
+    </div>
+</div>
+

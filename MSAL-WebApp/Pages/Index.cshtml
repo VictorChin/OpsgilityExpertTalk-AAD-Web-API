@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        @{ if (User.Identity.IsAuthenticated)
+            {
+
+                foreach (var item in Model.User.Claims)
+                {
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm text-right border">
+                                @item.Type
+                            </div>
+                            <div class="col-sm text-left border">
+                                @item.Value
+                            </div>
+
+                        </div>
+                    </div>
+                }
+    <div class="container">
+        <div class="row justify-content-center mt-md-5">
+            <div class="col-sm">
+                <a href="@Url.Page("Profile")" class="btn btn-outline-primary mx-2">Profile</a>
+           
+                <a href="@Url.Page("Mail")" class="btn btn-outline-primary mx-2">Mail</a>
+           
+                <a href="@Url.Page("BankAccount")" class="btn btn-outline-primary mx-2">Account API</a>
+            </div>
+        </div>
+    </div>
+
+                <div class="container my-md-5">
+                    <a href="/MicrosoftIdentity/Account/SignOut" class="btn btn-outline-primary ">Sign-Out</a>
+                </div>
+            }
+            else
+            {
+                <div class="container my-md-5">
+                    <a href="/MicrosoftIdentity/Account/Signin" class="btn btn-outline-primary ">Sign-in</a>
+                </div>
+            }
+
+
+        }
+
+
+    </div>

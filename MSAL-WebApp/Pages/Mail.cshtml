@@ -1,0 +1,30 @@
+﻿@page
+@model MSAL_WebApp.Pages.MailModel
+@{
+    ViewData["Title"] = "Mail";
+}
+
+<h1>Mail</h1>
+
+@foreach (var item in Model.Messages)
+{
+    <div class="container-fluid table-bordered">
+        <div class="row">
+            <div class="col-md-6">@item.From.EmailAddress.Name (@item.From.EmailAddress.Address)</div>
+            <div class="col-md-6">@item.Subject.ToString()</div>
+        </div>
+    </div>
+
+
+}
+<div class="container">
+    <div class="row justify-content-center mt-md-5">
+        <div class="col-sm">
+            <a href="@Url.Page("Profile")" class="btn btn-outline-primary mx-2">Profile</a>
+
+            <a href="@Url.Page("Mail")" class="btn btn-outline-primary mx-2">Mail</a>
+
+            <a href="@Url.Page("BankAccount")" class="btn btn-outline-primary mx-2">Account API</a>
+        </div>
+    </div>
+</div>

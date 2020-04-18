@@ -1,0 +1,19 @@
+﻿@page
+@model MSAL_WebApp.Pages.BankAccountModel
+@{
+    ViewData["Title"] = "BankAccount";
+}
+
+<h1>BankAccount</h1>
+<div>@Model.AccountString</div>
+<div class="container">
+    <div class="row justify-content-center mt-md-5">
+        <div class="col-sm">
+            <a href="@Url.Page("Profile")" class="btn btn-outline-primary mx-2">Profile</a>
+
+            <a href="@Url.Page("Mail")" class="btn btn-outline-primary mx-2">Mail</a>
+
+            <a href="@Url.Page("BankAccount")" class="btn btn-outline-primary mx-2">Account API</a>
+        </div>
+    </div>
+</div>
